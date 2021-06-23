@@ -19,28 +19,20 @@ def solution(data):
     # column 구하기
     askii_num = int(ord(data_li[0])) - 48
     column = int(chr(askii_num))
-    # print(data)
-    # print(row,column)
 
     # 나이트가 위 또는 아래로 2칸 움직일 때
     cnt = 0
     if (row-2 > 0):
-        cnt = leftRight(column,cnt)
+        cnt = leftRight(column,cnt) # 왼쪽, 오른쪽으로 1칸 움직일 때
     if (row+2 < 9):
         cnt = leftRight(column,cnt)
 
     # 나이트가 왼쪽 또는 오른쪽으로 2칸 움직일 때
     if (column-2 > 0):
-        cnt = upDown(row,cnt)
+        cnt = upDown(row,cnt) # 위, 아래로 1칸 움직일 때
     if (column+2 < 9):
         cnt = upDown(row,cnt)
-        
-    # print(cnt)
     return cnt
-
-# data = 'a1'
-# answer = solution(data)
-# print(answer)
 
 data = 'c8'
 answer = solution(data)
