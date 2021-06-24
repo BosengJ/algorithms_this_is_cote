@@ -26,7 +26,8 @@ S = "0A0A0000A0A0"
 a = solution(S)
 print(a)
 
-'''K1KA5CB7
+'''Test case
+K1KA5CB7
 답: ABCKK13
 
 AJKDLSI412K4JSJ9D
