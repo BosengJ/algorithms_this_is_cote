@@ -14,14 +14,20 @@ def searchLand(map,location):
     else: 
         return False
 
-
-# def searchLeftValue(d,x,y):
-#     if d == 0:                  # 북
-#         x,y = x,y
-#     if d == 1:                  # 동
-#     if d == 2:                  # 남
-#     if d == 3:                  # 서
-#     return left_val
+# 현재 바라보는 방향을 기준으로 왼쪽에 무슨 값이 있는지 알아내는 함수
+def searchLeftValue(location,d,map):
+    i,j = location
+    if (j-1 >= 0) and (d == 0):             # 북
+        left_val = map[i][j-1]
+    elif (i-1 >= 0) and (d == 1):           # 동
+        left_val = map[i-1][j]
+    elif (j+1 < len(map[0])) and (d == 2):   # 남
+        left_val = map[i][j+1]
+    elif (i+1 < len(map)) and (d == 3):      # 서
+        left_val = map[i+1][j]
+    else:
+        left_val = 'none'
+    return left_val
 
 def solution(map,location):
     current_location = location[:2]
@@ -31,7 +37,8 @@ def solution(map,location):
     
     # 네 방향 하나라도 육지가 있을 경우
     if searchLand(map,current_location) == True:
-        print('aa')
+        left_val = searchLeftValue(current_location,d,map)
+        print(left_val)
     
     # 네 방향 모두 이미 가본 칸이거나 바다로 되어있는 경우
     else:
