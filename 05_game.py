@@ -1,4 +1,4 @@
-# 현재 위치를 기준으로 사방에 육지가 있는지 없는지 판별
+# 현재 위치를 기준으로 사방에 육지가 있는지 없는지 판별하는 함수
 def searchLand(map,location):
     i,j = location
     if i-1 >= 0:
@@ -29,8 +29,11 @@ def solution(map,location):
     y,x = current_location
     map[y][x] = 2               # 방문한 곳은 2로 표시해준다. 시작 위치도 방문했기 때문에 2로 바꿔줬다.
     
+    # 네 방향 하나라도 육지가 있을 경우
     if searchLand(map,current_location) == True:
         print('aa')
+    
+    # 네 방향 모두 이미 가본 칸이거나 바다로 되어있는 경우
     else:
         print('bb')
     
