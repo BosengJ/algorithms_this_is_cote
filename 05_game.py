@@ -28,8 +28,11 @@ def solution(map,location):
     d = location[-1]
     y,x = current_location
     map[y][x] = 2               # 방문한 곳은 2로 표시해준다. 시작 위치도 방문했기 때문에 2로 바꿔줬다.
-    a = searchLand(map,location)
-    print(a)
+    
+    if searchLand(map,current_location) == True:
+        print('aa')
+    else:
+        print('bb')
     
 
     # while map[y][x] != 1:       # 위치가 육지를 벗어나는 순간 멈춘다.
