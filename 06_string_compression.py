@@ -1,20 +1,23 @@
-def splitWord(i,s):
+def splitWord(unit,s):
     split_list = []
     word = ""
-    for ch in s:
-        if len(word) < i:
-            word += ch
-        else:
+    for i in range(len(s)):
+        word += s[i]
+        if len(word) == unit:
             split_list.append(word)
             word = ""
+        elif i == len(s)-1:
+            split_list.append(word)
     return split_list
+
 
 def solution(s):
     half_len_s = len(s)//2
     
     compression_li = []
-    for i in range(1,half_len_s+1):
-        split_list = splitWord(i,s)
+    for unit in range(1,half_len_s+1):
+        split_list = splitWord(unit,s)
+
         word = []
         cnt = 0
         for i in range(len(split_list)):
@@ -29,7 +32,9 @@ def solution(s):
                 cnt = 1
                 word.append(cnt)
                 word.append(split_list[i])
+        print(word)
         compression = ''.join(word)
+        print(compression)
         compression_li.append(compression)
         print(compression_li)
         
