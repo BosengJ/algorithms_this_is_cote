@@ -60,13 +60,14 @@ def find_westIdx(current_location):         # 서쪽으로 이동했을 때의 �
 
 
 def solution(map,location):
+    # 초기값 출력
+    print('start!')
+    print('map:',map)
+
     current_location = location[:2]
     d = location[-1]
     y,x = current_location
     map[y][x] = 2            # 방문한 곳은 2로 표시해준다 (시작 위치도 방문했기 때문에 2로 바꿔줬다)
-    
-    # 초기값 출력
-    print('start!')
     print('map:',map)
     print('current_location:',current_location)
     print('d:',d)
@@ -151,16 +152,23 @@ def solution(map,location):
             if d == 3:
                 current_location = find_eastIdx(current_location)
 
-            # 이동한 곳의 값이 육지일 경우 2로 바꿔줘고, 바다일 경우 게임을 중단한다
+            # 이동한 곳의 값이 가보지 않은 육지일 경우 2로 바꿔줘고, 바다일 경우 게임을 중단한다
             y,x = current_location
             current_val = map[y][x]
             if current_val == 0:
                 map[y][x] = 2  
             if current_val == 1:
                 break
-            print('map:',map)
+    print('map:',map)
 
-    return []
+    # 방문한 육지의 개수를 카운트 한다
+    cnt = 0
+    for i in range(len(map)):
+        for j in range(len(map)):
+            if map[i][j] == 2:
+                cnt += 1
+    print(cnt)
+    return cnt
 
 map = [[1,1,1,1],[1,0,0,1],[1,1,0,1],[1,1,1,1]]
 location = [1,1,0]
