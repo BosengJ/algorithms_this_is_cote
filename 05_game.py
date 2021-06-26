@@ -1,31 +1,31 @@
 # 현재 위치를 기준으로 사방에 어떤 값이 있는지 판별하는 함수 4개
 
-def find_northVal(map,location):    # 북쪽의 값
-    i,j = location
+def find_northVal(map,current_location):    # 북쪽의 값
+    i,j = current_location
     if i-1 >= 0:
         n_val = map[i-1][j]     
     else:
         n_val = 'none'
     return n_val
 
-def find_eastVal(map,location):    # 동쪽의 값
-    i,j = location
+def find_eastVal(map,current_location):    # 동쪽의 값
+    i,j = current_location
     if j+1 < len(map[0]):
         e_val = map[i][j+1]     
     else:
         e_val = 'none'
     return e_val
     
-def find_southVal(map,location):   # 남쪽의 값
-    i,j = location
+def find_southVal(map,current_location):   # 남쪽의 값
+    i,j = current_location
     if i+1 < len(map):
         s_val = map[i+1][j]
     else:
         s_val = 'none'  
     return s_val
 
-def find_southVal(map,location):   # 서쪽의 값
-    i,j = location
+def find_westVal(map,current_location):   # 서쪽의 값
+    i,j = current_location
     if j-1 >= 0:
         w_val = map[i][j-1]     
     else: 
