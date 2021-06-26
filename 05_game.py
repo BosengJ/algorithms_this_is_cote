@@ -48,25 +48,19 @@ def solution(map,location):
     
     # 네 방향 하나라도 육지가 있을 경우
     if (n_val == 0) or (e_val == 0) or (s_val == 0) or (w_val == 0): 
-        # print(map)
-        # print(current_location)
-        # print(left_val)
+        print(map)
+        print(current_location)
         print('aa')
     
     # 네 방향 모두 이미 가본 칸이거나 바다로 되어있는 경우
     else:
         print('bb')
 
-        
-    if searchLand(map,current_location) == True:
-
     # while map[y][x] != 1:       # 위치가 육지를 벗어나는 순간 멈춘다.
     #     left_val = searchLeftValue(d,x,y)
     #     if left_val == 0:
 
-
-    answer = []
-    return answer
+    return []
 
 map = [[1,1,1,1],[1,0,0,1],[1,1,0,1],[1,1,1,1]]
 location = [1,1,0]
