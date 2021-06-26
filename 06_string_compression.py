@@ -12,6 +12,9 @@ def splitWord(unit,s):
 
 
 def solution(s):
+    if len(s) == 1:
+        return 1
+    
     half_len_s = len(s)//2
     
     compression_li = []
