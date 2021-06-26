@@ -1,4 +1,5 @@
 # 현재 위치를 기준으로 사방에 어떤 값이 있는지 판별하는 함수 4개
+
 def find_northVal(map,location):    # 북쪽의 값
     i,j = location
     if i-1 >= 0:
@@ -30,37 +31,6 @@ def find_southVal(map,location):   # 서쪽의 값
     else: 
         w_val = 'none'
     return w_val
-
-# 현재 위치를 기준으로 사방에 육지가 있는지 없는지 판별하는 함수
-def searchLand(map,location):
-    i,j = location
-    if i-1 >= 0:
-        n = map[i-1][j]     # 북쪽의 값
-    if j+1 < len(map[0]):
-        e = map[i][j+1]     # 동쪽의 값
-    if i+1 < len(map):
-        s = map[i+1][j]     # 남쪽의 값
-    if j-1 >= 0:
-        w = map[i][j-1]     # 서쪽의 값
-    if n == 0 or e == 0 or s==0 or w==0:
-        return True
-    else: 
-        return False
-
-# 현재 바라보는 방향을 기준으로 왼쪽에 무슨 값이 있는지 알아내는 함수
-def searchLeftValue(location,d,map):
-    i,j = location
-    if (j-1 >= 0) and (d == 0):              # 북
-        left_val = map[i][j-1]
-    elif (i-1 >= 0) and (d == 1):            # 동
-        left_val = map[i-1][j]
-    elif (j+1 < len(map[0])) and (d == 2):   # 남
-        left_val = map[i][j+1]
-    elif (i+1 < len(map)) and (d == 3):      # 서
-        left_val = map[i+1][j]
-    else:
-        left_val = 'none'
-    return left_val
 
 def solution(map,location):
     current_location = location[:2]
