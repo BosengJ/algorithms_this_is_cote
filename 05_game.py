@@ -139,7 +139,7 @@ def solution(map,location):
                 print('left! no land')
                 print('d:',d)
 
-        # 2) 네 방향 모두 이미 가본 칸이거나 바다로 되어있는 경우, 바라보는 방향을 유지한 채 뒤로 한 칸 이동한다
+        # 2) 네 방향 모두 이미 가본 칸이거나 바다로 되어있는 경우, 방향을 유지한 채 뒤로 한 칸 이동한다
         else:
             print('4 direction, no land')
             if d == 0:
@@ -151,7 +151,7 @@ def solution(map,location):
             if d == 3:
                 current_location = find_eastIdx(current_location)
 
-            # 이동한 곳의 값을 2로 바꿔준다.
+            # 이동한 곳의 값이 육지일 경우 2로 바꿔줘고, 바다일 경우 게임을 중단한다
             y,x = current_location
             current_val = map[y][x]
             if current_val == 0:
