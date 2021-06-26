@@ -1,14 +1,15 @@
+# 입력받은 단위로 문자열을 쪼개주는 함수
 def splitWord(unit,s):
     split_list = []
     word = ""
     for i in range(len(s)):
-        word += s[i]
-        if len(word) == unit:
+        word += s[i]                    # 문자 하나하나 차곡차곡 쌓아올린다
+        if len(word) == unit:           # 쌓인 문자열이 입력받은 단위와 길이가 같다면 리스트에 넣어준다
             split_list.append(word)
             word = ""
-        elif i == len(s)-1:
+        elif i == len(s)-1:             # 마지막 문자열이 단위보다 작을 수 있으므로 마지막은 그냥 무조건 리스트에 넣어준다
             split_list.append(word)
-    return split_list
+    return split_list                   # 입력받은 단위로 쪼개진 문자열을 리스트로 반환한다
 
 
 def solution(s):
