@@ -21,6 +21,7 @@ def solution(s):
         word = []
         cnt = 0
         for i in range(len(split_list)):
+            
             if i == 0:
                 cnt += 1
                 word.append(cnt)
@@ -32,16 +33,16 @@ def solution(s):
                 cnt = 1
                 word.append(cnt)
                 word.append(split_list[i])
-        print(word)
-        compression = ''.join(word)
-        print(compression)
-        compression_li.append(compression)
-        print(compression_li)
+            print(word)
+        
+        # compression = ''.join(word)
+        # print(compression)
+        # compression_li.append(compression)
+        # print(compression_li)
         
     
     answer = 0
     return answer
-
-s = "aabbaccc"
+s = "abcabcdede"
 a = solution(s)
 print(a)
