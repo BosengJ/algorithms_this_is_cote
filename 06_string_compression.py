@@ -32,19 +32,19 @@ def solution(s):
                 cnt = 1
                 word.append(cnt)
                 word.append(split_list[i])
-        print(word)
-        
+
         compression = ""
         for ch in word:
             if ch != 1:
                 compression += str(ch)
-        print(compression)
         
         compression_li.append(compression)
-    print(compression_li)
-        
     
-    answer = 0
+    min_word = len(compression_li[0])
+    for word in compression_li:
+        if len(word) < min_word:
+            min_word = len(word)
+    answer = min_word
     return answer
 
 
