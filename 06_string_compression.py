@@ -33,14 +33,21 @@ def solution(s):
                 word.append(cnt)
                 word.append(split_list[i])
         print(word)
-        # compression = ''.join(word)
-        # print(compression)
-        # compression_li.append(compression)
-        # print(compression_li)
+        
+        compression = ""
+        for ch in word:
+            if ch != 1:
+                compression += str(ch)
+        print(compression)
+        
+        compression_li.append(compression)
+    print(compression_li)
         
     
     answer = 0
     return answer
+
+
 s = "abcabcdede"
 a = solution(s)
 print(a)
