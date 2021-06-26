@@ -21,20 +21,18 @@ def solution(s):
         word = []
         cnt = 0
         for i in range(len(split_list)):
-            
             if i == 0:
                 cnt += 1
                 word.append(cnt)
                 word.append(split_list[i])
-            elif s[i] == word[-1]:
+            elif split_list[i] == word[-1]:
                 cnt += 1
                 word[-2] = cnt
             else:
                 cnt = 1
                 word.append(cnt)
                 word.append(split_list[i])
-            print(word)
-        
+        print(word)
         # compression = ''.join(word)
         # print(compression)
         # compression_li.append(compression)
