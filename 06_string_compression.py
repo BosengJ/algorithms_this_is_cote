@@ -37,13 +37,13 @@ def solution(s):
         for ch in word:
             if ch != 1:
                 compression += str(ch)
-        
         compression_li.append(compression)
     
     min_word = len(compression_li[0])
     for word in compression_li:
         if len(word) < min_word:
             min_word = len(word)
+            
     answer = min_word
     return answer
 
