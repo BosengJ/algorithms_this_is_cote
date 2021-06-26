@@ -15,18 +15,21 @@ def solution(s):
     compression_li = []
     for i in range(1,half_len_s+1):
         split_list = splitWord(i,s)
-        compression = ""
+        word = []
         cnt = 0
         for i in range(len(split_list)):
             if i == 0:
                 cnt += 1
-                compression += str(cnt) + split_list[i]
-            elif s[i] == compression[-1]:
+                word.append(cnt)
+                word.append(split_list[i])
+            elif s[i] == word[-1]:
                 cnt += 1
-                compression[-2] = str(cnt)
+                word[-2] = cnt
             else:
                 cnt = 1
-                compression += str(cnt) + split_list[i]
+                word.append(cnt)
+                word.append(split_list[i])
+        compression = ''.join(word)
         compression_li.append(compression)
         print(compression_li)
         
