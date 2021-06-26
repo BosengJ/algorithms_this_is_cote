@@ -73,6 +73,7 @@ def solution(map,location):
     print('d:',d)
 
     while True:
+        
         # 현재 위치를 기준으로 네 방향의 값을 확인한다
         n_val = find_northVal(map,current_location)
         e_val = find_eastVal(map,current_location)
