@@ -97,7 +97,7 @@ def solution(map,location):
             if d == 0:               # 북쪽을 바라보고 있다면 왼쪽인 서쪽 값을 구한다
                 left_val = find_westVal(map,current_location)
             if d == 1:               # 동쪽을 바라보고 있다면 왼쪽인 북쪽 값을 구한다
-                left_val = find_eastVal(map,current_location)
+                left_val = find_northVal(map,current_location)
             if d == 2:               # 남쪽을 바라보고 있다면 왼쪽인 동쪽 값을 구한다
                 left_val = find_eastVal(map,current_location)
             if d == 3:               # 서쪽을 바라보고 있다면 왼쪽인 남쪽 값을 구한다
@@ -157,12 +157,11 @@ def solution(map,location):
             # 이동한 곳의 값이 가보지 않은 육지일 경우 2로 바꿔줘고, 바다일 경우 게임을 중단한다
             y,x = current_location
             current_val = map[y][x]
-            if current_val == 0:
-                map[y][x] = 2  
             if current_val == 1:
                 print('current_location:',current_location,'current_val:',current_val)
                 print('the game is over!')
                 break
+        print(map)
     print('fianl map:',map)
 
     # 방문한 육지의 개수를 카운트 한다
@@ -175,14 +174,14 @@ def solution(map,location):
 
 # test case
 
-map = [[1,1,1,1],[1,0,0,1],[1,1,0,1],[1,1,1,1]]
-location = [1,1,0]
+# map = [[1,1,1,1],[1,0,0,1],[1,1,0,1],[1,1,1,1]]
+# location = [1,1,0]
 # 답 3
 
 # 무한루프
-# map = [[1,1,1,1,1],[1,0,1,0,1],[1,0,1,0,1],
-# [1,0,0,0,1],[1,0,1,0,1],[1,0,1,0,1],[1,1,1,1,1]]
-# location = [3,2,1]
+map = [[1,1,1,1,1],[1,0,1,0,1],[1,0,1,0,1],
+[1,0,0,0,1],[1,0,1,0,1],[1,0,1,0,1],[1,1,1,1,1]]
+location = [3,2,1]
 
 # 통과
 # map = [[1,1,1,1],[1,0,0,1],[1,0,1,0],[1,1,1,1]]

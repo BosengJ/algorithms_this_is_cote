@@ -1,10 +1,12 @@
 def solution(N,map):
     location = [1,1] # 초기 위치값
     print(location)
+    dir = {'L' : [0, -1]}
     for direction in map:
         if direction == 'L':
             if location[1]-1 > 0:
-                location[1] -= 1
+                location[0] += dir['L'][0]
+                location[1] += dir['L'][1]
                 print(location,direction)
         if direction == 'R':
             if location[1]+1 < N+1:

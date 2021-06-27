@@ -17,8 +17,8 @@ def solution(data):
     row = int(data_li[1])
     
     # column 구하기
-    askii_num = int(ord(data_li[0])) - 48
-    column = int(chr(askii_num))
+    column = int(ord(data_li[0])- ord('a'))
+    # column = int(chr(askii_num))
 
     # 나이트가 위 또는 아래로 2칸 움직일 때
     cnt = 0

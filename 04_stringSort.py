@@ -9,7 +9,7 @@ def solution(S):
     alphabet = []
     number = []
     for c in S:
-        if (ord(c) >= 65) and (ord(c) <= 90): # 대문자를 아스키코드로 찾아낸다
+        if (ord('A') <= ord(c)) and (ord(c) <= ord('Z')): # 대문자를 아스키코드로 찾아낸다
             alphabet.append(c)
         else:
             number.append(c)

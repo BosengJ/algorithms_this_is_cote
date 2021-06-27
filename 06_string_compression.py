@@ -59,3 +59,31 @@ def solution(s):
 s = "abcabcdede"
 a = solution(s)
 print(a)
+
+
+# def solution(raw_data):
+
+#     min_val = len(raw_data)
+#     for length in range(1, len(raw_data)//2 + 1):
+#         idx = length
+#         converted = ""
+#         pre_str = raw_data[:length]
+#         cnt = 1
+#         for i in range(length, len(raw_data), length):
+#             cur_str = raw_data[i:i+length]
+#             if cur_str != pre_str:
+#                 if cnt == 1:
+#                     converted += pre_str
+#                 else:
+#                     converted += str(cnt) + pre_str
+#                 pre_str = cur_str
+#                 cnt = 1
+#             else:
+#                 cnt += 1
+#         if cnt == 1:
+#             converted += cur_str
+#         else:
+#             converted += str(cnt) + cur_str
+#         if min_val > len(converted):
+#             min_val = len(converted)
+#     return min_val
