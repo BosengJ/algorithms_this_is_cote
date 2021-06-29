@@ -40,8 +40,8 @@ def solution(key, lock):
     if cnt_one == cnt_zero:
         distance_key = calDistance(idx_key_list)
         print(distance_key)
-    # if distance_key == distance_lock:
-    #     return true
+        if distance_key == distance_lock:
+            answer = True
         
 
     answer = True
