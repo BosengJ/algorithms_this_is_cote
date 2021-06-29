@@ -16,7 +16,7 @@ def checkKey(li):
     cnt = 0
     for i in range(len(li)):
         for j in range(len(li)):
-            if lock[i][j] == 1:
+            if li[i][j] == 1:
                 cnt += 1
                 idx = [i,j]
                 idx_list.append(idx)
@@ -36,12 +36,18 @@ def solution(key, lock):
     print(distance_lock)
     print(cnt_zero)
     
-    cnt_one,idx_key_list = checkKey(li)
+    cnt_one,idx_key_list = checkKey(key)
     if cnt_one == cnt_zero:
         distance_key = calDistance(idx_key_list)
-    if distance_key == distance_lock:
-        return true
+        print(distance_key)
+    # if distance_key == distance_lock:
+    #     return true
         
 
     answer = True
     return answer
+
+key = [[0, 0, 0], [1, 0, 0], [0, 1, 1]]
+lock = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
+a = solution(key,lock)
+print(a)
