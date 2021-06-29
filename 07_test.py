@@ -1,7 +1,4 @@
-def solution(li):
-    return li[0], li
-
-list_a = [0,1,2,3,4]
-a,b = solution(list_a)
+a = []
+for i in range(3):
+    a.append([0]*3)
 print(a)
-print(b)
