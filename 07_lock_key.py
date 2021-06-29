@@ -1,49 +1,16 @@
-def calDistance(li):
-    distance_i = 0
-    distance_j = 0
-    for i,j in li:
-        distance_i -= i
-        distance_j -= j
-        if distance_i < 0:
-            distance_i *= -1
-        if distance_j < 0:
-            distance_j *= -1
-    dx = [distance_i,distance_j]
-    return dx
-
-def checkKey(li):
-    idx_list = []
-    cnt = 0
-    for i in range(len(li)):
-        for j in range(len(li)):
-            if li[i][j] == 1:
-                cnt += 1
-                idx = [i,j]
-                idx_list.append(idx)
-    return cnt, idx_list
-
 def solution(key, lock):
-    idx_lock_list = []
-    cnt_zero = 0
-    for i in range(len(lock)):
-        for j in range(len(lock)):
-            if lock[i][j] == 0:
-                cnt_zero += 1
-                idx_zero = [i,j]
-                idx_lock_list.append(idx_zero)
-    distance_lock = calDistance(idx_lock_list)
-    print(idx_lock_list)
-    print(distance_lock)
-    print(cnt_zero)
+    # 확장된 Lock array
+    extended_lock = []
+    for i in range(len(lock)*3):
+        extended_lock.append([0]*len(lock)*3)
+    # 확장된 Lock array 에 기존의 lock array를 가운데에 넣어준다
+    for i in range(len(extended_lock)):
+        for j in range(len(extended_lock)):
+            if i >= len(lock) and i < len(lock)*2 and j >= len(lock) and j < len(lock)*2:
+                extended_lock[i][j] += lock[i-len(lock)][j-len(lock)]
+    print(extended_lock)
+                
     
-    cnt_one,idx_key_list = checkKey(key)
-    if cnt_one == cnt_zero:
-        distance_key = calDistance(idx_key_list)
-        print(distance_key)
-        if distance_key == distance_lock:
-            answer = True
-        
-
     answer = True
     return answer
 
