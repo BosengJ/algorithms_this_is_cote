@@ -11,6 +11,17 @@ def calDistance(li):
     dx = [distance_i,distance_j]
     return dx
 
+def checkKey(li):
+    idx_list = []
+    cnt = 0
+    for i in range(len(li)):
+        for j in range(len(li)):
+            if lock[i][j] == 1:
+                cnt += 1
+                idx = [i,j]
+                idx_list.append(idx)
+    return cnt, idx_list
+
 def solution(key, lock):
     idx_lock_list = []
     cnt_zero = 0
@@ -25,22 +36,12 @@ def solution(key, lock):
     print(distance_lock)
     print(cnt_zero)
     
-    idx_key_list = []
-    cnt_one = 0
-    for i in range(len(key)):
-        for j in range(len(key)):
-            if lock[i][j] == 1:
-                cnt_one += 1
-                idx_one = [i,j]
-                idx_key_list.append(idx_one)
+    cnt_one,idx_key_list = checkKey(li)
     if cnt_one == cnt_zero:
         distance_key = calDistance(idx_key_list)
     if distance_key == distance_lock:
         return true
         
-        
-    
-        
-    
+
     answer = True
     return answer
