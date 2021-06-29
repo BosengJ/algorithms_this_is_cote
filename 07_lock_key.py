@@ -25,27 +25,18 @@ def solution(key, lock):
     print(distance_lock)
     print(cnt_zero)
     
-    # idx_key_list = []
-    # cnt_one = 0
-    # for i in range(len(key)):
-    #     for j in range(len(key)):
-    #         if lock[i][j] == 1:
-    #             cnt_one += 1
-    #             idx_one = [i,j]
-    #             idx_key_list.append(idx_one)
-    # if cnt_one == cnt_zero:
-    #     distance_i = 0
-    #     distance_j = 0
-    #     for i,j in idx_key_list:
-    #         distance_i -= i
-    #         distance_j -= j
-    #         if distance_i < 0:
-    #             distance_i *= -1
-    #         if distance_j < 0:
-    #             distance_j *= -1
-    #     distance = [distance_i,distance_j]
-    # if distance == distance:
-    #     return true
+    idx_key_list = []
+    cnt_one = 0
+    for i in range(len(key)):
+        for j in range(len(key)):
+            if lock[i][j] == 1:
+                cnt_one += 1
+                idx_one = [i,j]
+                idx_key_list.append(idx_one)
+    if cnt_one == cnt_zero:
+        distance_key = calDistance(idx_key_list)
+    if distance_key == distance_lock:
+        return true
         
         
     
