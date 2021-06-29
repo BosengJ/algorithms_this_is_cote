@@ -30,14 +30,21 @@ def solution(key, lock):
     print(extended_lock)
     
     # Sliding Window 
-    # 0도 회전한 key를 확장된 lock에 더해주기
-    for i in range(len(extended_lock)):
-        for j in range(len(extended_lock)):
-            extended_lock[i][j] += key[i][j]
-        
-    
-    answer = True
-    return answer
+    # 90도 씩 회전시키며 lock에 key가 맞는지 확인한다
+    for rotation in range(4):
+        key = rotateKey(key)
+        for x in range(len(lock)*2):
+            for y in range(len(lock)*2):
+                for i in range(len(key)):
+                    for j in range(len(key)):
+                        extended_lock[x+i][y+j] += key[i][j]
+                if checkLock(extended_lock,lock) == True:
+                    return True
+                
+                for i in range(len(key)):
+                    for j in range(len(key)):
+                        extended_lock[x+i][y+j] -= key[i][j]
+    return False
 
 key = [[0, 0, 0], [1, 0, 0], [0, 1, 1]]
 lock = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
