@@ -1,7 +1,7 @@
 n,m = map(int,input("n,m을 공백을 구분으로 입력하세요:").split())
 card_arr = []
 for i in range(n):
-    card_arr.append(list(map(int,input("n,m을 공백을 구분으로 입력하세요:").split())))
+    card_arr.append(list(map(int,input("배열을 공백을 구분으로 입력하세요:").split())))
 print(card_arr)
 
 min_li = []
