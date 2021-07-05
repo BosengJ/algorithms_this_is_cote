@@ -4,7 +4,7 @@ answer = 0
 for n in s_list:
     if answer == 0:
         answer += n
-    elif n == 0:
+    elif n <= 1:
         answer += n
     else:
         answer *= n
