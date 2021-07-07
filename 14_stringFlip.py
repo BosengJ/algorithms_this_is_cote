@@ -11,10 +11,24 @@ for i in range(len(s)):
     elif (s[i] == '1') and (s[i] != s[i+1]):
         flip_zero += 1
 
-print(flip_one)
-print(flip_zero)
-
 if flip_one < flip_zero:
     print(flip_one)
 else:
     print(flip_zero)
+
+
+# 문자열 뒤집기
+# 0001100
+# 1
+
+# 10110101
+# 3
+
+# 0000000
+# 0
+
+# 1111111
+# 0
+
+# 1000110001
+# 2
