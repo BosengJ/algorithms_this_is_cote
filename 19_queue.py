@@ -17,3 +17,7 @@ queue.popleft()
 print(queue)
 queue.reverse()
 print(queue)
+
+print(type(queue))
+a = list(queue)
+print(a,type(a))
