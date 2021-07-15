@@ -17,12 +17,15 @@ def check0_turn1(li,x,y):
     if (x-1 >= 0) and (li[x-1][y] == 0): # 위쪽 확인
         li[x-1][y] = 1
         li = check0_turn1(li,x-1,y)
+
     if (y-1 >= 0) and (li[x][y-1] == 0): # 왼쪽 확인
         li[x][y-1] = 1
         li = check0_turn1(li,x,y-1)
+
     if (y+1 < m) and (li[x][y+1] == 0): # 오른쪽 확인
         li[x][y+1] = 1
         li = check0_turn1(li,x,y+1)
+        
     if (x+1 < n) and (li[x+1][y] == 0): # 아래쪽 확인
         li[x+1][y] = 1
         li = check0_turn1(li,x+1,y)
