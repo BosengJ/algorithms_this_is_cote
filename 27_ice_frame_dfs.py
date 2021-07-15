@@ -11,7 +11,7 @@ for i in range(n):
 #     [0, 0, 0, 0, 0]
 #     ]
 
-def check0_turn1(li,x,y):
+def check0_turn1(li,x,y,m,n):
     if (x-1 >= 0) and (li[x-1][y] == 0): # 위쪽 확인
         li[x-1][y] = 1
         li = check0_turn1(li,x-1,y)
