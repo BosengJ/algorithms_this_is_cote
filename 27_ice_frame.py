@@ -25,7 +25,7 @@ def check0_turn1(li,x,y):
     if (y+1 < m) and (li[x][y+1] == 0): # 오른쪽 확인
         li[x][y+1] = 1
         li = check0_turn1(li,x,y+1)
-        
+
     if (x+1 < n) and (li[x+1][y] == 0): # 아래쪽 확인
         li[x+1][y] = 1
         li = check0_turn1(li,x+1,y)
@@ -37,6 +37,5 @@ for i in range(n):
         if ice_frame[i][j] == 0:
             ice_frame[i][j] = 1
             ice_frame = check0_turn1(ice_frame,i,j)
-            print(ice_frame)
             icecream += 1
 print(icecream)
