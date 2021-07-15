@@ -13,9 +13,9 @@ ice_frame = [
     [0, 0, 0, 0, 0]
     ]
 
-def check0_turn1(li,p,q,m,n):
-    queue = deque([p,q])
-    li[p][q] = 1
+def check0_turn1(li,x,y,m,n):
+    queue = deque([x,y])
+    li[x][y] = 1
     while queue:
         p,q = queue.popleft()
         if (q+1 < m) and (li[p][q+1] == 0): # 오른쪽 확인
