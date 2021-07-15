@@ -15,14 +15,15 @@ def BFS(graph, start, visited):
     while queue:
         # 큐에서 하나의 원소를 뽑아 출력
         v = queue.popleft()
-        print(v, end=' ')
+        # print(v, end=' ')
         # 해당 원소와 연결된, 아직 방문하지 않은 원소들을 큐에 삽입
         for i in graph[v]:
+            print(i, end = ' ')
             if not visited[i]:
                 queue.append(i)
                 visited[i] = True
-
-
+        
+        print()
 # 각 노드가 연결된 정보를 리스트 자료형으로 표현 (2차원 리스트)
 graph = [
     [],
