@@ -19,14 +19,15 @@ maze = [
 
 # 초기값 설정
 queue = deque([[0,0]])
-maze[0][0] = 0
 visited = 1
-print(maze)
+maze[0][0] = 0
 
 for i in range(n):
     for j in range(m):
         while queue:
+            print('queue:',queue, 'v:',visited)
             print(maze)
+            print()
             p,q = queue.popleft()
 
             if (p == n-1) and (q == m-1):   # 출구 도착시 종료
@@ -35,24 +36,25 @@ for i in range(n):
 
             if (p-1 >= 0) and (maze[p-1][q] == 1):  # 위쪽 확인
                 queue.append([p-1,q])
-                maze[p-1][q] = 0
                 visited += 1
+                maze[p-1][q] = 0
 
             if (q-1 >= 0) and (maze[p][q-1] == 1):  # 왼쪽 확인
                 queue.append([p,q-1])
-                maze[p][q-1] = 0
                 visited += 1
+                maze[p][q-1] = 0
 
             if (q+1 < m) and (maze[p][q+1] == 1):  # 오른쪽 확인
                 queue.append([p,q+1])
-                maze[p][q+1] = 0
                 visited += 1
+                maze[p][q+1] = 0
 
             if (p+1 < n) and (maze[p+1][q] == 1):  # 아래쪽 확인
                 queue.append([p+1,q])
-                maze[p+1][q] = 0
                 visited += 1
+                maze[p+1][q] = 0
 
             else:
                 visited -= 1
+                maze[p][q] = 0
 print(visited)
