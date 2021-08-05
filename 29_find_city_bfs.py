@@ -30,15 +30,14 @@ for i in range(n):
     city_dict[c] = []
     c += 1
 
-# 초기값으로 출발 도시를 넣어준다
+# 초기값 설정
 queue = deque([x])
 distance = 0
+city_dict[x] = 0
 
 while queue:
     c = queue.popleft()
-    city_dict[c] = distance
     for i in city_node[c]:
         queue.append(i)
-    distance += 1
-
+    
 print(city_dict)
