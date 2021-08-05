@@ -1,3 +1,7 @@
-test_dict = {1: [], 2: [], 3: [], 4: []}
-test_dict[1].append(3)
-print(test_dict)
+from collections import deque
+x = 1
+queue = deque([x])
+print(queue)
+
+queue.append(100)
+print(queue)
