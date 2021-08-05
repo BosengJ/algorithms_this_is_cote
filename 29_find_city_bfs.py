@@ -12,3 +12,12 @@ import sys
 n,m,k,x = 4,4,2,1
 city = [[1, 2], [1, 3], [2, 3], [2, 4]]
 
+city_node = []
+for c in range(m+1):
+    node = []
+    for i in range(m):
+        for j in range(2):
+            if (j == 0) and (city[i][j] == c):
+                node.append(city[i][j+1])
+    city_node.append(node)
+print(city_node)
