@@ -1,9 +1,6 @@
 # p339 특정 거리의 도시 찾기
 # sys.stdin.readline()으로 input을 받아야한다
 
-from collections import deque
-import sys
-
 # n,m,k,x = map(int, input("n,m,k,x을 공백을 구분으로 입력하세요:").split())
 # city = []
 # for i in range(m):
@@ -29,6 +26,5 @@ for i in range(m):
         if (j == 0) and (city[i][j] == x):
             arrival = city[i][j+1]
             city_dict[arrival].append(distance)
-            # city_dict[city_dict[i][j+1]].append(distance)
 
 print(city_dict)
