@@ -9,9 +9,12 @@ for i in range(n):
 # cards = [[3, 1, 2], [4, 1, 4], [2, 2, 2]]
 
 min_cards = []
-for c in cards:
-    tmp = min(c)
-    min_cards.append(tmp)
+for i in range(n):
+    min_num = cards[i][0]
+    for j in range(m):
+        if cards[i][j] < min_num:
+            min_num = cards[i][j]
+    min_cards.append(min_num)
 
 answer = 0
 for c in min_cards:
