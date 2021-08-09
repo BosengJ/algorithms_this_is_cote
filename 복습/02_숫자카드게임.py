@@ -13,5 +13,10 @@ for c in cards:
     tmp = min(c)
     min_cards.append(tmp)
 
-answer = max(min_cards)
+answer = 0
+for c in min_cards:
+    if c > answer:
+        answer = c
+
+
 print(answer)
