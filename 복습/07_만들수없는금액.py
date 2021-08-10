@@ -5,3 +5,19 @@
 
 n = 5
 coins = [3, 2, 1, 1, 9]
+
+def bubbleSort(li):
+    for i in range(len(li)-1):
+        for j in range(len(li)-i-1):
+            if li[j] > li[j+1]:
+                li[j],li[j+1] = li[j+1],li[j]
+    return li
+
+sorted_coins = bubbleSort(coins)
+min_coin = 1
+for coin in sorted_coins:
+    if min_coin < coin:
+        break
+    else:
+        min_coin += coin
+print(min_coin)
