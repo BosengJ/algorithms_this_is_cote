@@ -27,16 +27,17 @@ def solution(key, lock):
         for j in range(len(lock)):
             box[len(lock) + i][len(lock) + j] = lock[i][j]
     
-    for r in range(4):
-        key = rotate90(key)
-        for bx in range(len(lock)*3):
-            for by in range(len(lock)*3):
+    for bx in range(len(lock)*2):
+        for by in range(len(lock)*2):
+            for r in range(4):
+                key = rotate90(key)
                 for kx in range(len(key)):
                     for ky in range(len(key)):
-                        box[bx][by] += key[kx][ky]
+                        box[bx + kx][by + ky] += key[kx][ky]
                 if openLock(box,lock) == True:
                     return True
+                
                 for kx in range(len(key)):
                     for ky in range(len(key)):
-                        box[bx][by] -= key[kx][ky]
+                        box[bx + kx][by + ky] -= key[kx][ky]
     return False
