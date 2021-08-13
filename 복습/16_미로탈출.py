@@ -15,3 +15,29 @@ maps = [
     [1, 1, 1, 1, 1, 1], 
     [1, 1, 1, 1, 1, 1]
     ]
+
+def bfs(x,y,li,n,m):
+    queue = deque([x,y])
+
+    while queue:
+        a,b = queue.popleft()
+
+        if (a-1 >= 0) and (li[a-1][b] == 1):       # 위
+            li[a-1][b] = li[a][b] + 1
+            queue.append([a-1,b])
+        
+        if (a+1 < n) and (li[a+1][b] == 1):        # 아래
+            li[a+1][b] = li[a][b] + 1
+            queue.append([a+1,b])
+        
+        if (b-1 >= 0) and (li[a][b-1] == 1):       # 왼쪽
+            li[a][b-1] = li[a][b] + 1
+            queue.append([a,b-1])
+        
+        if (b+1 < m) and (li[a][b+1] == 1):        # 오른쪽
+            li[a][b+1] = li[a][b] + 1
+            queue.append([a,b+1])
+
+        if (a == n) and (b == m):
+            break
+    return li
