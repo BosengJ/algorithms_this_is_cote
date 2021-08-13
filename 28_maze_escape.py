@@ -1,20 +1,20 @@
 from collections import deque
 print('============================================')
 
-n,m = map(int, input("n,m을 공백을 구분으로 입력하세요:").split())
-maze = []
-for i in range(n):
-    maze.append(list(map(int,str(input("미로의 정보를 입력하세요:")))))
+# n,m = map(int, input("n,m을 공백을 구분으로 입력하세요:").split())
+# maze = []
+# for i in range(n):
+#     maze.append(list(map(int,str(input("미로의 정보를 입력하세요:")))))
 
 
-# n,m = 5,6
-# maze = [
-#     [1, 0, 1, 0, 1, 0], 
-#     [1, 1, 1, 1, 1, 1], 
-#     [0, 0, 0, 0, 0, 1], 
-#     [1, 1, 1, 1, 1, 1], 
-#     [1, 1, 1, 1, 1, 1]
-#     ]
+n,m = 5,6
+maze = [
+    [1, 0, 1, 0, 1, 0], 
+    [1, 1, 1, 1, 1, 1], 
+    [0, 0, 0, 0, 0, 1], 
+    [1, 1, 1, 1, 1, 1], 
+    [1, 1, 1, 1, 1, 1]
+    ]
 
 # 초기값 설정
 queue = deque([[0,0]])
