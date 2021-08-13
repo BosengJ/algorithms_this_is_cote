@@ -17,7 +17,7 @@ maps = [
     ]
 
 def bfs(x,y,li,n,m):
-    queue = deque([x,y])
+    queue = deque([[x,y]])
 
     while queue:
         a,b = queue.popleft()
@@ -41,3 +41,8 @@ def bfs(x,y,li,n,m):
         if (a == n) and (b == m):
             break
     return li
+
+map_step = bfs(0,0,maps,n,m)
+answer = map_step[n-1][m-1]
+print(answer)
+
