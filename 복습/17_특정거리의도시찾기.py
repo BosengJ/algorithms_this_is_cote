@@ -19,7 +19,7 @@ for c in range(n+1):
             if (j == 0) and (city[i][j] == c):
                 node.append(city[i][j+1])
     city_node.append(node)
-print(city_node)
+print("city_node:", city_node)
 
 # 최단거리 dictionary 생성
 city_dict = dict()
@@ -27,12 +27,28 @@ k = 1
 for i in range(n):
     city_dict[k] = []
     k += 1
+print("city_dict", city_dict)
 
 # bfs
 q = deque([])
-q.append([1])
+q.append([x,0])
 while q:
-    idx = q.popleft()
+    print(q)
+    idx,cnt = q.popleft()
+    city_dict[idx].append(cnt)
+    tmp = city_node[idx]
+    for n in tmp:
+        q.append([n,cnt+1])
+print(city_dict)
+
+for k,v in city_dict.items():
+    if len(v) > 1:
+        m = min(v)
+        city_dict[k] = [m]
+print(city_dict)
+
+    
+    
 
 
 
