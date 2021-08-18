@@ -1,5 +1,7 @@
 # p339 특정 거리의 도시 찾기
 
+from collections import deque
+
 # n,m,k,x = map(int,input("공백을 기준으로 n,m,k,x를 입력하세요:").split())
 # city = []
 # for i in range(m):
@@ -8,6 +10,7 @@
 n,m,k,x = 4,4,2,1
 city = [[1, 2], [1, 3], [2, 3], [2, 4]]
 
+# city -> city node 로 바꿔주는 코드
 city_node = []
 for c in range(n+1):
     node = []
@@ -17,6 +20,20 @@ for c in range(n+1):
                 node.append(city[i][j+1])
     city_node.append(node)
 print(city_node)
+
+# 최단거리 dictionary 생성
+city_dict = dict()
+k = 1
+for i in range(n):
+    city_dict[k] = []
+    k += 1
+
+# bfs
+q = deque([])
+q.append([1])
+while q:
+    idx = q.popleft()
+
 
 
 # a = []
