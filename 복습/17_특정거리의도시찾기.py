@@ -23,10 +23,10 @@ print("city_node:", city_node)
 
 # 최단거리 dictionary 생성
 city_dict = dict()
-k = 1
+key = 1
 for i in range(n):
-    city_dict[k] = []
-    k += 1
+    city_dict[key] = []
+    key += 1
 print("city_dict", city_dict)
 
 # bfs
@@ -46,11 +46,11 @@ for key,val in city_dict.items():
     if len(val) > 1:
         m = min(val)
         city_dict[key] = [m]
-    print(val)
-    if val == k:
+    if val[0] == k:
         answer.append(key)
 print(city_dict)
 print(answer)
+
 
 
 
