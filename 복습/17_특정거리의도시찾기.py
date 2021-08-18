@@ -41,11 +41,18 @@ while q:
         q.append([n,cnt+1])
 print(city_dict)
 
-for k,v in city_dict.items():
-    if len(v) > 1:
-        m = min(v)
-        city_dict[k] = [m]
+answer = []
+for key,val in city_dict.items():
+    if len(val) > 1:
+        m = min(val)
+        city_dict[key] = [m]
+    print(val)
+    if val == k:
+        answer.append(key)
 print(city_dict)
+print(answer)
+
+
 
     
     
