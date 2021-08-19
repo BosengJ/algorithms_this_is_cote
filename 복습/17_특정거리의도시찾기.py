@@ -45,18 +45,3 @@ for key,val in city_dict.items():
     if val[0] == k:
         answer.append(key)
 print(answer)
-
-
-
-
-    
-    
-
-
-
-# a = []
-# b = 1
-# if (len(a) == 0) or (b < a[0]):
-#     a.append(b)
-
-# print(a)
