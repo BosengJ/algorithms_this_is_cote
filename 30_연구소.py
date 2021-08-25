@@ -23,3 +23,4 @@ for i in range(n):
             # 바이러스 -> 0 cnt -> max와 비교
             maps[i][j] = 0
             cnt -= 1
+# print(maps)
