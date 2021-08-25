@@ -16,7 +16,7 @@ maps = [
 cnt = 0
 for i in range(n):
     for j in range(m):
-        if (cnt<3) and (maps[i][j] == 0):
+        if (cnt < 3) and (maps[i][j] == 0):
             maps[i][j] = 1
             cnt += 1
         if cnt == 3:
