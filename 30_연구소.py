@@ -57,6 +57,7 @@ for i in range(n):
             maps[i][j] = 1
             cnt_wall += 1
         if cnt_wall == 3:
+            
             # 바이러스 퍼뜨리기
             tmp = maps[:]
             virus_maps = virusBFS(tmp, n, m)
