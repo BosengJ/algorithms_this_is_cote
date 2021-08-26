@@ -48,18 +48,16 @@ def virusBFS(li, n, m):
                         li[x][y+1] = 2
     return li   
 
-a = virusBFS(b,n,m)
-print(a)
-
-# cnt = 0
-# max = 0
-# for i in range(n):
-#     for j in range(m):
-#         if (cnt < 3) and (maps[i][j] == 0):
-#             maps[i][j] = 1
-#             cnt += 1
-#         if cnt == 3:
-#             # 바이러스 -> 0 cnt -> max와 비교
-#             maps[i][j] = 0
-#             cnt -= 1
-# print(maps)
+cnt = 0
+max = 0
+for i in range(n):
+    for j in range(m):
+        if (cnt < 3) and (maps[i][j] == 0):
+            maps[i][j] = 1
+            cnt += 1
+        if cnt == 3:
+            # 바이러스 -> 0 cnt -> max와 비교
+            
+            maps[i][j] = 0
+            cnt -= 1
+print(maps)
