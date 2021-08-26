@@ -15,13 +15,6 @@ maps = [
     [0, 0, 0, 0, 0, 2]
     ]
 
-b = [
-    [0,0,0,0,0,1],
-    [1,0,0,0,1,2],
-    [1,1,1,1,0,2],
-    [0,0,0,0,0,2]
-]
-
 def virusBFS(li, n, m):
     q = deque([])
     for i in range(n):
@@ -48,16 +41,31 @@ def virusBFS(li, n, m):
                         li[x][y+1] = 2
     return li   
 
-cnt = 0
-max = 0
+def cntZero(li):
+    c = 0
+    for i in range(len(li)):
+        for j in range(len(li[i])):
+            if li[i][j] == 0:
+                c += 1
+    return c
+
+cnt_wall = 0
+max_zero = 0
 for i in range(n):
     for j in range(m):
-        if (cnt < 3) and (maps[i][j] == 0):
+        if (cnt_wall < 3) and (maps[i][j] == 0):
             maps[i][j] = 1
-            cnt += 1
-        if cnt == 3:
-            # 바이러스 -> 0 cnt -> max와 비교
+            cnt_wall += 1
+        if cnt_wall == 3:
+            # 바이러스 퍼뜨리기
+            virus_maps = virusBFS(maps, n, m)
+
+            # 0 카운트하여 max 값과 비교
+            cnt_zero = cntZero(virus_maps)
+            if cnt_zero > max_zero:
+                max_zero = cnt_zero
             
+            # 벽 하나 없애기
             maps[i][j] = 0
-            cnt -= 1
+            cnt_wall -= 1
 print(maps)
