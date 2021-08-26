@@ -58,7 +58,11 @@ for i in range(n):
             cnt_wall += 1
         if cnt_wall == 3:
             # 바이러스 퍼뜨리기
-            virus_maps = virusBFS(maps, n, m)
+            tmp = maps[:]
+            virus_maps = virusBFS(tmp, n, m)
+
+            print(maps)
+            print(virus_maps)
 
             # 0 카운트하여 max 값과 비교
             cnt_zero = cntZero(virus_maps)
@@ -68,4 +72,6 @@ for i in range(n):
             # 벽 하나 없애기
             maps[i][j] = 0
             cnt_wall -= 1
+
+print(max_zero)
 print(maps)
