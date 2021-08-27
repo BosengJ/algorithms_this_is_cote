@@ -1,6 +1,7 @@
 # 백준 https://www.acmicpc.net/problem/14502
 
 from collections import deque
+import copy
 
 # n,m = map(int,input("n,m >"))
 # maps = []
@@ -49,30 +50,31 @@ def cntZero(li):
                 c += 1
     return c
 
-cnt_wall = 0
-max_zero = 0
-for i in range(n):
-    for j in range(m):
-        if (cnt_wall < 3) and (maps[i][j] == 0):
-            maps[i][j] = 1
-            cnt_wall += 1
-        if cnt_wall == 3:
-            
-            # 바이러스 퍼뜨리기
-            tmp = maps[:]
-            virus_maps = virusBFS(tmp, n, m)
+def wallDFS(cnt_wall):
+    global max_zero
 
-            print(maps)
-            print(virus_maps)
+    # 벽 3개 완성됐을 때,
+    if cnt_wall == 3:
+        # 바이러스 퍼뜨리기
+        tmp =  copy.deepcopy(maps)
+        virus_maps = virusBFS(tmp, n, m)
 
-            # 0 카운트하여 max 값과 비교
-            cnt_zero = cntZero(virus_maps)
-            if cnt_zero > max_zero:
-                max_zero = cnt_zero
-            
-            # 벽 하나 없애기
-            maps[i][j] = 0
-            cnt_wall -= 1
+        # 0 카운트하여 max 값과 비교
+        cnt_zero = cntZero(virus_maps)
+        max_zero = max(max_zero, cnt_zero)
+        return 
+    
+    for i in range(n):
+        for j in range(m):
+            if maps[i][j] == 0:
+                maps[i][j] = 1
+                cnt_wall += 1
+                wallDFS(cnt_wall)
+
+                # wallDFS에서 빠져 나오면 벽 하나 없애기
+                maps[i][j] = 0
+                cnt_wall -= 1
+
+wallDFS(0)
 
 print(max_zero)
-print(maps)
