@@ -3,18 +3,19 @@
 from collections import deque
 import copy
 
-# n,m = map(int,input("n,m >"))
-# maps = []
-# for i in range(n):
-#     maps.append(list(map(int,input("maps >"))))
+n,m = map(int,input("n,m >").split())
+maps = []
+for i in range(n):
+    maps.append(list(map(int,input("maps >").split())))
 
-n,m = 4,6
-maps = [
-    [0, 0, 0, 0, 0, 0], 
-    [1, 0, 0, 0, 0, 2], 
-    [1, 1, 1, 0, 0, 2], 
-    [0, 0, 0, 0, 0, 2]
-    ]
+# n,m = 4,6
+# maps = [
+#     [0, 0, 0, 0, 0, 0], 
+#     [1, 0, 0, 0, 0, 2], 
+#     [1, 1, 1, 0, 0, 2], 
+#     [0, 0, 0, 0, 0, 2]
+#     ]
+max_zero = 0
 
 def virusBFS(li, n, m):
     q = deque([])
@@ -76,5 +77,4 @@ def wallDFS(cnt_wall):
                 cnt_wall -= 1
 
 wallDFS(0)
-
 print(max_zero)
