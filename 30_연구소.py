@@ -15,6 +15,7 @@ for i in range(n):
 #     [1, 1, 1, 0, 0, 2], 
 #     [0, 0, 0, 0, 0, 2]
 #     ]
+
 max_zero = 0
 
 def virusBFS(li, n, m):
@@ -51,7 +52,7 @@ def cntZero(li):
                 c += 1
     return c
 
-def wallDFS(cnt_wall):
+def wallDFS(cnt_wall, x, y):
     global max_zero
 
     # 벽 3개 완성됐을 때,
@@ -65,16 +66,20 @@ def wallDFS(cnt_wall):
         max_zero = max(max_zero, cnt_zero)
         return 
     
-    for i in range(n):
-        for j in range(m):
+    for i in range(x,n):
+        if i == x:
+            k = y
+        else:
+            k = 0
+        for j in range(k,m):
             if maps[i][j] == 0:
                 maps[i][j] = 1
                 cnt_wall += 1
-                wallDFS(cnt_wall)
+                wallDFS(cnt_wall, x, y)
 
                 # wallDFS에서 빠져 나오면 벽 하나 없애기
                 maps[i][j] = 0
                 cnt_wall -= 1
 
-wallDFS(0)
+wallDFS(0,0,0)
 print(max_zero)
