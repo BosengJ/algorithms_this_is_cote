@@ -3,18 +3,18 @@
 from collections import deque
 import copy
 
-n,m = map(int,input("n,m >").split())
-maps = []
-for i in range(n):
-    maps.append(list(map(int,input("maps >").split())))
+# n,m = map(int,input("n,m >").split())
+# maps = []
+# for i in range(n):
+#     maps.append(list(map(int,input("maps >").split())))
 
-# n,m = 4,6
-# maps = [
-#     [0, 0, 0, 0, 0, 0], 
-#     [1, 0, 0, 0, 0, 2], 
-#     [1, 1, 1, 0, 0, 2], 
-#     [0, 0, 0, 0, 0, 2]
-#     ]
+n,m = 4,6
+maps = [
+    [0, 0, 0, 0, 0, 0], 
+    [1, 0, 0, 0, 0, 2], 
+    [1, 1, 1, 0, 0, 2], 
+    [0, 0, 0, 0, 0, 2]
+    ]
 
 max_zero = 0
 
@@ -52,7 +52,7 @@ def cntZero(li):
                 c += 1
     return c
 
-def wallDFS(cnt_wall, x, y):
+def wallDFS(cnt_wall, start):
     global max_zero
 
     # 벽 3개 완성됐을 때,
@@ -65,21 +65,19 @@ def wallDFS(cnt_wall, x, y):
         cnt_zero = cntZero(virus_maps)
         max_zero = max(max_zero, cnt_zero)
         return 
-    
-    for i in range(x,n):
-        if i == x:
-            k = y
-        else:
-            k = 0
-        for j in range(k,m):
-            if maps[i][j] == 0:
-                maps[i][j] = 1
-                cnt_wall += 1
-                wallDFS(cnt_wall, x, y)
 
-                # wallDFS에서 빠져 나오면 벽 하나 없애기
-                maps[i][j] = 0
-                cnt_wall -= 1
+    for i in range(start, n*m):
+        x = (int)(i / m)
+        y = (int)(i % m)
 
-wallDFS(0,0,0)
+        if maps[x][y] == 0:
+            maps[x][y] = 1
+            wallDFS(cnt_wall, i+1)
+
+            # wallDFS에서 빠져 나오면 벽 하나 없애기
+            maps[x][y] = 0
+            cnt_wall -= 1
+
+                
+wallDFS(0,0)
 print(max_zero)
