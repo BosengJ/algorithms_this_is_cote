@@ -72,11 +72,10 @@ def wallDFS(cnt_wall, start):
 
         if maps[x][y] == 0:
             maps[x][y] = 1
-            wallDFS(cnt_wall, i+1)
+            wallDFS(cnt_wall+1, i+1)
 
             # wallDFS에서 빠져 나오면 벽 하나 없애기
             maps[x][y] = 0
-            cnt_wall -= 1
 
                 
 wallDFS(0,0)
