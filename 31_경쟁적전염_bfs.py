@@ -7,7 +7,6 @@ for i in range(n):
     tube.append(list(map(int,sys.stdin.readline().split())))
 s,x,y = map(int,sys.stdin.readline().split())
 
-
 # n,k = 3,3
 # tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
 # s,x,y = 1,2,2
@@ -23,8 +22,6 @@ for virus in range(1,k+1):
         for j in range(n):
             if tube[i][j] == virus:
                 q.append([0,virus,i,j])
-
-
 
 dx = [0,0,-1,1]
 dy = [-1,1,0,0]
