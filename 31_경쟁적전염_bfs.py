@@ -1,19 +1,19 @@
 from collections import deque
 import sys
 
-n,k = map(int,sys.stdin.readline().split())
-tube = []
-for i in range(n):
-    tube.append(list(map(int,sys.stdin.readline().split())))
-s,x,y = map(int,sys.stdin.readline().split())
+# n,k = map(int,sys.stdin.readline().split())
+# tube = []
+# for i in range(n):
+#     tube.append(list(map(int,sys.stdin.readline().split())))
+# s,x,y = map(int,sys.stdin.readline().split())
 
 # n,k = 3,3
 # tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
-# s,x,y = 1,2,2
+# s,x,y = 2,3,2
 
-# n,k = 3,3
-# tube = [[0, 2, 1], [0, 0, 0], [3, 0, 0]]
-# s,x,y = 1,2,2
+n,k = 3,3
+tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
+s,x,y = 1,2,2
 
 # 초기값 설정
 q = deque([])
