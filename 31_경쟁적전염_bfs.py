@@ -1,14 +1,19 @@
 from collections import deque
+import sys
 
-# n,k = map(int,input().split())
-# tube = []
-# for i in range(n):
-#     tube.append(list(map(int,input().split())))
-# s,x,y = map(int,input().split())
+n,k = map(int,sys.stdin.readline().split())
+tube = []
+for i in range(n):
+    tube.append(list(map(int,sys.stdin.readline().split())))
+s,x,y = map(iint,sys.stdin.readline().split())
 
-n,k = 3,3
-tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
-s,x,y = 1,2,2
+# n,k = 3,3
+# tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
+# s,x,y = 1,2,2
+
+# n,k = 3,3
+# tube = [[0, 2, 1], [0, 0, 0], [3, 0, 0]]
+# s,x,y = 1,2,2
 
 # 초기값 설정
 q = deque([])
@@ -17,6 +22,8 @@ for virus in range(1,k+1):
         for j in range(n):
             if tube[i][j] == virus:
                 q.append([0,virus,i,j])
+
+
 
 dx = [0,0,-1,1]
 dy = [-1,1,0,0]
@@ -32,5 +39,4 @@ while q:
                 tube[nx][ny] = v
 
 answer = tube[x-1][y-1]
-print(tube)
 print(answer)
