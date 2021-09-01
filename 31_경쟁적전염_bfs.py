@@ -1,19 +1,19 @@
 from collections import deque
 import sys
 
-n,k = map(int,sys.stdin.readline().split())
-tube = []
-for i in range(n):
-    tube.append(list(map(int,sys.stdin.readline().split())))
-s,x,y = map(int,sys.stdin.readline().split())
+# n,k = map(int,sys.stdin.readline().split())
+# tube = []
+# for i in range(n):
+#     tube.append(list(map(int,sys.stdin.readline().split())))
+# s,x,y = map(int,sys.stdin.readline().split())
 
 # n,k = 3,3
 # tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
 # s,x,y = 2,3,2
 
-# n,k = 3,3
-# tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
-# s,x,y = 1,2,2
+n,k = 3,3
+tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
+s,x,y = 1,2,2
 
 # 바이러스 추출
 virus_dict = {}
@@ -27,16 +27,11 @@ for i in range(n):
 # 추출된 바이러스 오름차순 정렬
 sorted_virus_dict = sorted(virus_dict.items())
 
-# a_dict = {2: [0, 2], 1: [0, 0], 3: [2, 0], 0: [9 ,1]}
-# sorted_dict = sorted(a_dict.items())
-# print(sorted_dict)
-# for a,[b,c] in sorted_dict:
-#     print(a,b,c)
-
 # 초기값 설정
 q = deque([])
 for virus,[i,j] in sorted_virus_dict:
     q.append([0,virus,i,j])
+print(q)
 
 # 초기값 설정
 # q = deque([])
