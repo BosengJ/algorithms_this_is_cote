@@ -11,27 +11,39 @@ import sys
 # tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
 # s,x,y = 2,3,2
 
+# n,k = 3,3
+# tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
+# s,x,y = 1,2,2
+
 n,k = 3,3
-tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
-s,x,y = 1,2,2
+tube = [[1, 1, 2], [0, 0, 0], [3, 0, 0]]
+s,x,y = 2,3,2
 
 # 바이러스 추출
-virus_dict = {}
-for i in range(n):
-    for j in range(n):
-        if tube[i][j] != 0:
-            key = tube[i][j]
-            val = [i,j]
-            virus_dict[key] = val
+# virus_dict = {}
+# for i in range(n):
+#     for j in range(n):
+#         if tube[i][j] != 0:
+#             key = tube[i][j]
+#             val = [i,j]
+#             virus_dict[key] = val
+# print(virus_dict)
 
 # 추출된 바이러스 오름차순 정렬
-sorted_virus_dict = sorted(virus_dict.items())
+# sorted_virus_dict = sorted(virus_dict.items())
+
+virus_xy = [[0]] * k
+# for i in range(n):
+#     for j in range(n):
+#         if tube[i][j] != 0:
+#             virus_type = tube[i][j]
+#             tmp = [i,j]
 
 # 초기값 설정
 q = deque([])
 for virus,[i,j] in sorted_virus_dict:
     q.append([0,virus,i,j])
-print(q)
+# print(q)
 
 # 초기값 설정
 # q = deque([])
