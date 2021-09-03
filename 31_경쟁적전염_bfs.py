@@ -1,11 +1,12 @@
+from operator import itemgetter
 from collections import deque
 import sys
 
-# n,k = map(int,sys.stdin.readline().split())
-# tube = []
-# for i in range(n):
-#     tube.append(list(map(int,sys.stdin.readline().split())))
-# s,x,y = map(int,sys.stdin.readline().split())
+n,k = map(int,sys.stdin.readline().split())
+tube = []
+for i in range(n):
+    tube.append(list(map(int,sys.stdin.readline().split())))
+s,x,y = map(int,sys.stdin.readline().split())
 
 # n,k = 3,3
 # tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
@@ -15,34 +16,23 @@ import sys
 # tube = [[1, 0, 2], [0, 0, 0], [3, 0, 0]]
 # s,x,y = 1,2,2
 
-n,k = 3,3
-tube = [[1, 1, 2], [0, 0, 0], [3, 0, 0]]
-s,x,y = 2,3,2
-
 # 바이러스 추출
-# virus_dict = {}
-# for i in range(n):
-#     for j in range(n):
-#         if tube[i][j] != 0:
-#             key = tube[i][j]
-#             val = [i,j]
-#             virus_dict[key] = val
-# print(virus_dict)
+virus_inform = []
+for i in range(n):
+    for j in range(3):
+        if tube[i][j] != 0:
+            virus_inform.append([0,tube[i][j],i,j])
+# print(virus_inform)
 
-# 추출된 바이러스 오름차순 정렬
-# sorted_virus_dict = sorted(virus_dict.items())
+# 바이러스 종류별로 오름차순 정렬
+virus_inform.sort(key=itemgetter(1))
+# print(virus_inform)
 
-virus_xy = [[0]] * k
-# for i in range(n):
-#     for j in range(n):
-#         if tube[i][j] != 0:
-#             virus_type = tube[i][j]
-#             tmp = [i,j]
 
 # 초기값 설정
 q = deque([])
-for virus,[i,j] in sorted_virus_dict:
-    q.append([0,virus,i,j])
+for v in virus_inform:
+    q.append(v)
 # print(q)
 
 # 초기값 설정
