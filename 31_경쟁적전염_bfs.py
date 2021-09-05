@@ -48,10 +48,15 @@ def bfs(virus_inform,tube,s,n):
 virus_inform = virusInform(n,tube)
 
 # 바이러스 종류별로 오름차순 정렬
-virus_inform.sort(key=itemgetter(1))
+
+def X(x):
+    return x[1]
+virus_inform.sort(key = X)
 
 # 바이러스 증식 BFS
 virus_spread = bfs(virus_inform,tube,s,n)
 
 answer = virus_spread[x-1][y-1]
 print(answer)
+
+
