@@ -5,19 +5,29 @@
 # add, sub, mul, div = map(int,sys.stdin.readline().split())
 
 
-n = 2
-num = [5,6]
-add, sub, mul, div = [0,0,1,0]
+# n = 2
+# num = [5,6]
+# add, sub, mul, div = [0,0,1,0]
+
+# n = 3
+# num = [3,4,5]
+# add, sub, mul, div = [1,0,1,0]
+
+n = 6
+num = [1,2,3,4,5,6]
+add, sub, mul, div = [2,1,1,1]
 
 
 def dfs(i, res, add, sub, mul, div):
     global max_, min_
+
     if i == n:
         if res > max_:
             max_ = res
         if res < min_:
             min_ = res
         return
+        
     else:
         if add:
             dfs(i+1, res+num[i], add-1, sub, mul, div)
