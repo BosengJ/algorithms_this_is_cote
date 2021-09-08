@@ -1,8 +1,8 @@
-# import sys
+import sys
 
-# n = int(sys.stdin.readline())
-# num = list(map(int,sys.stdin.readline().split()))
-# add, sub, mul, div = map(int,sys.stdin.readline().split())
+n = int(sys.stdin.readline())
+num = list(map(int,sys.stdin.readline().split()))
+add, sub, mul, div = map(int,sys.stdin.readline().split())
 
 
 # n = 2
@@ -13,9 +13,9 @@
 # num = [3,4,5]
 # add, sub, mul, div = [1,0,1,0]
 
-n = 6
-num = [1,2,3,4,5,6]
-add, sub, mul, div = [2,1,1,1]
+# n = 6
+# num = [1,2,3,4,5,6]
+# add, sub, mul, div = [2,1,1,1]
 
 
 def dfs(i, res, add, sub, mul, div):
