@@ -27,7 +27,7 @@ def dfs(i, res, add, sub, mul, div):
         if res < min_:
             min_ = res
         return
-        
+
     else:
         if add:
             dfs(i+1, res+num[i], add-1, sub, mul, div)
@@ -36,7 +36,7 @@ def dfs(i, res, add, sub, mul, div):
         if mul:
             dfs(i+1, res*num[i], add, sub, mul-1, div)
         if div:
-            dfs(i+1, res//num[i], add, sub, mul, div-1)
+            dfs(i+1, int(res/num[i]), add, sub, mul, div-1)
 
 max_, min_ = -1e9, 1e9
 dfs(1,num[0],add,sub,mul,div)
