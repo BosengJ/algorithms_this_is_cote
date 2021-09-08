@@ -1,4 +1,4 @@
-import sys
+# import sys
 
 # n = int(sys.stdin.readline())
 # num = list(map(int,sys.stdin.readline().split()))
@@ -28,7 +28,7 @@ def dfs(i, res, add, sub, mul, div):
         if div:
             dfs(i+1, res//num[i], add, sub, mul, div-1)
 
-max_, min_ = 1e9, -1e9
+max_, min_ = -1e9, 1e9
 dfs(1,num[0],add,sub,mul,div)
 
 print(max_)
