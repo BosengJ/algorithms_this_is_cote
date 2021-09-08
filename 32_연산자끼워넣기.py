@@ -2,11 +2,12 @@ import sys
 
 # n = int(sys.stdin.readline())
 # num = list(map(int,sys.stdin.readline().split()))
-# operator = list(map(int,sys.stdin.readline().split()))
+# add, sub, mul, div = map(int,sys.stdin.readline().split())
+
 
 n = 2
 num = [5,6]
-operator = [0,0,1,0]
+add, sub, mul, div = [0,0,1,0]
 
 def findMax(li):
     M = 0
