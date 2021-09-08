@@ -9,25 +9,14 @@ n = 2
 num = [5,6]
 add, sub, mul, div = [0,0,1,0]
 
-def findMax(li):
-    M = 0
-    for n in li:
-        if n > M:
-            M = n
-    return M
-
-def findMin(li):
-    m = li[0]
-    for n in li:
-        if n < m:
-            m = n
-    return m
 
 def dfs(i, res, add, sub, mul, div):
     global max_, min_
     if i == n:
-        max_ = findMax(li) # li
-        min_ = findMin(li) # li
+        if res > max_:
+            max_ = res
+        if res < min_:
+            min_ = res
         return
     else:
         if add:
