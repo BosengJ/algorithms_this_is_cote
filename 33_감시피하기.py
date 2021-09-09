@@ -24,8 +24,8 @@ def up(x,y,li):
             break
     return "True"
 
-def down(x,y,li,n):
-    while x < n-1:
+def down(x,y,li):
+    while x < len(li)-1:
         x += 1
         if li[x][y] == "S":
             return "False"
@@ -42,11 +42,12 @@ def left(x,y,li):
             break
     return "True"
 
-def right(x,y,li,n):
-    while y < n-1:
+def right(x,y,li):
+    while y < len(li)-1:
         y += 1
         if li[x][y] == "S":
             return "False"
         elif li[x][y] == "O":
             break
     return "True"
+
