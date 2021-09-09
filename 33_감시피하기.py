@@ -15,6 +15,7 @@ maps = [
     ['X', 'X', 'T', 'X', 'X']
     ]
 
+# BFS 진행시, 상하좌우로 감시하는 함수
 def up(x,y,li):
     while x > 0:
         x -= 1
@@ -51,3 +52,19 @@ def right(x,y,li):
             break
     return "True"
 
+# 선생님이 감시하는 BFS 함수
+def teacherWatchBFS(li,n):
+    q = deque([])
+    for i in range(n):
+        for j in range(n):
+            if li[i][j] == "T":
+                q.append([i,j])
+    while q:
+        x,y = q.popleft()
+        up_ = up(x,y,li)
+        down_ = down(x,y,li)
+        left_ = left(x,y,li)
+        right_ = right(x,y,li)
+    if (up_ == False) and (down_ == False) and (left_ == False) and (right_ == False):
+        return "NO"
+    return "YES"
