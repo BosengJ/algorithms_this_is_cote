@@ -68,3 +68,6 @@ def teacherWatchBFS(li,n):
     if (up_ == False) and (down_ == False) and (left_ == False) and (right_ == False):
         return "NO"
     return "YES"
+
+a = teacherWatchBFS(maps,n)
+print(a)
