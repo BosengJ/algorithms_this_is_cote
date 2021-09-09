@@ -6,23 +6,23 @@ from collections import deque
 # for i in range(n):
 #     maps.append(list(map(str,sys.stdin.readline().split())))
 
-# n = 5
-# maps = [
-#     ['X', 'S', 'X', 'X', 'T'], 
-#     ['T', 'X', 'S', 'X', 'X'], 
-#     ['X', 'X', 'X', 'X', 'X'], 
-#     ['X', 'T', 'X', 'X', 'X'], 
-#     ['X', 'X', 'T', 'X', 'X']
-#     ]
-
 n = 5
 maps = [
-    ['X', 'S', 'X', 'O', 'T'], 
-    ['T', 'O', 'S', 'X', 'X'], 
-    ['X', 'X', 'O', 'X', 'X'], 
+    ['X', 'S', 'X', 'X', 'T'], 
+    ['T', 'X', 'S', 'X', 'X'], 
+    ['X', 'X', 'X', 'X', 'X'], 
     ['X', 'T', 'X', 'X', 'X'], 
     ['X', 'X', 'T', 'X', 'X']
     ]
+
+# n = 5
+# maps = [
+#     ['X', 'S', 'X', 'O', 'T'], 
+#     ['T', 'O', 'S', 'X', 'X'], 
+#     ['X', 'X', 'O', 'X', 'X'], 
+#     ['X', 'T', 'X', 'X', 'X'], 
+#     ['X', 'X', 'T', 'X', 'X']
+#     ]
 
 # BFS 진행시, 상하좌우로 감시하는 함수
 def up(x,y,li):
@@ -74,12 +74,12 @@ def teacherWatchBFS(li,n):
         down_ = down(x,y,li)
         left_ = left(x,y,li)
         right_ = right(x,y,li)
-    
+
+    # 여기서부터 다시하기
     print(up_), print(down_), print(left_), print(right_)
-    if (up_ == True) and (down_ == True) and (left_ == True) and (right_ == True):
-        return "YES"
-    else:
+    if (up_ == False) or (down_ == False) or (left_ == False) or (right_ == False):
         return "NO"
+    return "YES"
 
 a = teacherWatchBFS(maps,n)
 print(a)
