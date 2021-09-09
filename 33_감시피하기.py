@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 
 # n = int(sys.stdin.readline())
 # maps = []
@@ -13,3 +14,39 @@ maps = [
     ['X', 'T', 'X', 'X', 'X'], 
     ['X', 'X', 'T', 'X', 'X']
     ]
+
+def up(x,y,li):
+    while x > 0:
+        x -= 1
+        if li[x][y] == "S":
+            return "False"
+        elif li[x][y] == "O":
+            break
+    return "True"
+
+def down(x,y,li,n):
+    while x < n-1:
+        x += 1
+        if li[x][y] == "S":
+            return "False"
+        elif li[x][y] == "O":
+            break
+    return "True"
+
+def left(x,y,li):
+    while y > 0:
+        y -= 1
+        if li[x][y] == "S":
+            return "False"
+        elif li[x][y] == "O":
+            break
+    return "True"
+
+def right(x,y,li,n):
+    while y < n-1:
+        y += 1
+        if li[x][y] == "S":
+            return "False"
+        elif li[x][y] == "O":
+            break
+    return "True"
