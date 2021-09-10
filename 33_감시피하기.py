@@ -68,18 +68,20 @@ def teacherWatchBFS(li,n):
         for j in range(n):
             if li[i][j] == "T":
                 q.append([i,j])
+
     while q:
         x,y = q.popleft()
+
         up_ = up(x,y,li)
         down_ = down(x,y,li)
         left_ = left(x,y,li)
         right_ = right(x,y,li)
 
-    # 여기서부터 다시하기
-    print(up_), print(down_), print(left_), print(right_)
-    if (up_ == False) or (down_ == False) or (left_ == False) or (right_ == False):
-        return "NO"
-    return "YES"
+        if (up_ == False) or (down_ == False) or (left_ == False) or (right_ == False):
+            break
+        else:
+            return "YES"
+    return "NO"
 
 a = teacherWatchBFS(maps,n)
 print(a)
