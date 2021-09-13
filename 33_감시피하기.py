@@ -61,6 +61,7 @@ def right(x,y,li):
             break
     return li
 
+
 # 선생님이 감시하는 BFS 함수
 def teacherWatchBFS(li,n):
     q = deque([])
@@ -77,11 +78,16 @@ def teacherWatchBFS(li,n):
         left(x,y,li)
         right(x,y,li)
 
-        if (up_ == False) or (down_ == False) or (left_ == False) or (right_ == False):
-            print(1)
-            return "NO"
+    return li
 
-    return "YES"
+new_maps = teacherWatchBFS(maps,n)
+print(new_maps)
 
-a = teacherWatchBFS(maps,n)
-print(a)
+for i in range(len(new_maps)):
+    for j in range(len(new_maps)):
+        if new_maps[i][j] == "catch":
+            answer = "NO"
+            break
+        else:
+            answer = "YES"
+print(answer)
