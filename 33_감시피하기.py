@@ -72,10 +72,10 @@ def teacherWatchBFS(li,n):
     while q:
         x,y = q.popleft()
 
-        up_ = up(x,y,li)
-        down_ = down(x,y,li)
-        left_ = left(x,y,li)
-        right_ = right(x,y,li)
+        up(x,y,li)
+        down(x,y,li)
+        left(x,y,li)
+        right(x,y,li)
 
         if (up_ == False) or (down_ == False) or (left_ == False) or (right_ == False):
             print(1)
