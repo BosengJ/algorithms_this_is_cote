@@ -29,37 +29,37 @@ def up(x,y,li):
     while x > 0:
         x -= 1
         if li[x][y] == "S":
-            return "False"
+            li[x][y] = "catch"
         elif li[x][y] == "O":
             break
-    return "True"
+    return li
 
 def down(x,y,li):
     while x < len(li)-1:
         x += 1
         if li[x][y] == "S":
-            return "False"
+            li[x][y] = "catch"
         elif li[x][y] == "O":
             break
-    return "True"
+    return li
 
 def left(x,y,li):
     while y > 0:
         y -= 1
         if li[x][y] == "S":
-            return "False"
+            li[x][y] = "catch"
         elif li[x][y] == "O":
             break
-    return "True"
+    return li
 
 def right(x,y,li):
     while y < len(li)-1:
         y += 1
         if li[x][y] == "S":
-            return "False"
+            li[x][y] = "catch"
         elif li[x][y] == "O":
             break
-    return "True"
+    return li
 
 # 선생님이 감시하는 BFS 함수
 def teacherWatchBFS(li,n):
