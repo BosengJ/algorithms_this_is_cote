@@ -72,12 +72,11 @@ def teacherWatchBFS(li,n):
 
     while q:
         x,y = q.popleft()
-
         up(x,y,li)
         down(x,y,li)
         left(x,y,li)
         right(x,y,li)
-
+        
     return li
 
 new_maps = teacherWatchBFS(maps,n)
