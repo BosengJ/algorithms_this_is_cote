@@ -87,6 +87,4 @@ for i in range(len(new_maps)):
         if new_maps[i][j] == "catch":
             answer = "NO"
             break
-        else:
-            answer = "YES"
 print(answer)
