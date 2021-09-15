@@ -6,14 +6,22 @@ from collections import deque
 # for i in range(n):
 #     maps.append(list(map(str,sys.stdin.readline().split())))
 
-n = 5
+# n = 5
+# maps = [
+#     ['X', 'S', 'X', 'X', 'T'], 
+#     ['T', 'X', 'S', 'X', 'X'], 
+#     ['X', 'X', 'X', 'X', 'X'], 
+#     ['X', 'T', 'X', 'X', 'X'], 
+#     ['X', 'X', 'T', 'X', 'X']
+#     ]
+
+n = 4
 maps = [
-    ['X', 'S', 'X', 'X', 'T'], 
-    ['T', 'X', 'S', 'X', 'X'], 
-    ['X', 'X', 'X', 'X', 'X'], 
-    ['X', 'T', 'X', 'X', 'X'], 
-    ['X', 'X', 'T', 'X', 'X']
-    ]
+    ['S', 'S', 'S', 'T'],
+    ['X', 'X', 'X', 'X'],
+    ['X', 'X', 'X', 'X'],
+    ['T', 'T', 'T', 'X']
+]
 
 # n = 5
 # maps = [
@@ -85,6 +93,8 @@ def checkmaps(new_maps):
         for j in range(len(new_maps)):
             if "catch" not in new_maps[i][j]:
                 answer = "YES"
+    if len(answer) == 0:
+            answer = "NO"
     return answer
 
 # 3개의 장애물을 설치하는 모든 경우의 수
@@ -93,9 +103,9 @@ def obstacleDFS(cnt_obs,start):
 
     if cnt_obs == 3:
         new_maps = teacherWatchBFS(maps,n)
+
         answer = checkmaps(new_maps)
-        if len(answer) == 0:
-            answer = "NO"
+        
         return
     
     for i in range(start, n*n):
