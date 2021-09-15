@@ -98,28 +98,25 @@ def checkmaps(new_maps):
     return answer
 
 # 3개의 장애물을 설치하는 모든 경우의 수
-def obstacleDFS(cnt_obs,start):
+def obstacleDFS(cnt_obs):
     global answer
 
     if cnt_obs == 3:
         new_maps = teacherWatchBFS(maps,n)
-
         answer = checkmaps(new_maps)
-        
         return
     
-    for i in range(start, n*n):
-        x = (int)(i / n)
-        y = (int)(i % n)
-        if maps[x][y] == 'X':
-            maps[x][y] = 'O'
-            obstacleDFS(cnt_obs+1,i+1)
+    for i in range(n):
+        for j in range(n):
+            if maps[i][j] == 'X':
+                maps[i][j] = 'O'
+                obstacleDFS(cnt_obs+1)
 
-            # obstacleDFS에서 빠져 나오면 원회복
-            maps[x][y] = 'X'
+                # obstacleDFS에서 빠져 나오면 원회복
+                maps[i][j] = 'X'
 
 
-obstacleDFS(0,0)
+obstacleDFS(0)
 
 
 print(answer)
