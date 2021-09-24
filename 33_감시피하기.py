@@ -118,5 +118,4 @@ def obstacleDFS(cnt_obs):
 
 obstacleDFS(0)
 
-
 print(answer)
