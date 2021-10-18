@@ -1,10 +1,10 @@
 import sys
 from collections import deque
 
-# n = int(sys.stdin.readline())
-# maps = []
-# for i in range(n):
-#     maps.append(list(map(str,sys.stdin.readline().split())))
+n = int(sys.stdin.readline())
+maps = []
+for i in range(n):
+    maps.append(list(map(str,sys.stdin.readline().split())))
 
 # n = 5
 # maps = [
@@ -92,14 +92,13 @@ def teacherWatchBFS(li,n):
 
 # 지도를 확인해서 선생님의 감시를 피했는지 여부를 확인하는 함수
 def checkmaps(new_maps):
-    answer = ''
+    ans = 'YES'
     for i in range(len(new_maps)):
         for j in range(len(new_maps)):
-            if "catch" not in new_maps[i][j]:
-                answer = "YES"
-    if len(answer) == 0:
-            answer = "NO"
-    return answer
+            if "catch" in new_maps[i][j]:
+                ans = "NO"
+                new_maps[i][j] = 'S'
+    return ans
 
 # 원래 지도로 회복해주는 함수
 def recoveryMaps(li):
@@ -112,12 +111,12 @@ def recoveryMaps(li):
 # 3개의 장애물을 설치하는 모든 경우의 수
 def obstacleDFS(cnt_obs):
     global answer
+    if answer == "YES":
+        return
 
-    # print(cnt_obs)
     if cnt_obs == 3:
         new_maps = teacherWatchBFS(maps,n)
         answer = checkmaps(new_maps)
-        recoveryMaps(new_maps)
         return
     
     for i in range(n):
@@ -127,6 +126,8 @@ def obstacleDFS(cnt_obs):
                 obstacleDFS(cnt_obs+1)
                 # obstacleDFS에서 빠져 나오면 원회복
                 maps[i][j] = 'X'
+
+answer = ""
 
 obstacleDFS(0)
 
