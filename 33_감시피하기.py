@@ -32,7 +32,7 @@ maps = [
 #     ['X', 'X', 'T', 'X', 'X']
 #     ]
 
-# 행렬 복사하는 함수
+# 2차원 배열 복사하는 함수
 def copyarray(li):
     array_w = len(li)
     array_h = len(li[0])
