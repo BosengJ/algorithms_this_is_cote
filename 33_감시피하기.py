@@ -32,6 +32,13 @@ maps = [
 #     ['X', 'X', 'T', 'X', 'X']
 #     ]
 
+# 행렬 복사하는 함수
+def copyarray(li):
+    array_w = len(li)
+    array_h = len(li[0])
+    copy = []
+    return 
+
 # BFS 진행시, 상하좌우로 감시하는 함수
 def up(x,y,li):
     while x > 0:
