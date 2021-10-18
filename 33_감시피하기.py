@@ -6,22 +6,22 @@ from collections import deque
 # for i in range(n):
 #     maps.append(list(map(str,sys.stdin.readline().split())))
 
-n = 5
-maps = [
-    ['X', 'S', 'X', 'X', 'T'], 
-    ['T', 'X', 'S', 'X', 'X'], 
-    ['X', 'X', 'X', 'X', 'X'], 
-    ['X', 'T', 'X', 'X', 'X'], 
-    ['X', 'X', 'T', 'X', 'X']
-    ]
-
-# n = 4
+# n = 5
 # maps = [
-#     ['S', 'S', 'S', 'T'],
-#     ['X', 'X', 'X', 'X'],
-#     ['X', 'X', 'X', 'X'],
-#     ['T', 'T', 'T', 'X'] 
-# ]
+#     ['X', 'S', 'X', 'X', 'T'], 
+#     ['T', 'X', 'S', 'X', 'X'], 
+#     ['X', 'X', 'X', 'X', 'X'], 
+#     ['X', 'T', 'X', 'X', 'X'], 
+#     ['X', 'X', 'T', 'X', 'X']
+#     ]
+
+n = 4
+maps = [
+    ['S', 'S', 'S', 'T'],
+    ['X', 'X', 'X', 'X'],
+    ['X', 'X', 'X', 'X'],
+    ['T', 'T', 'T', 'X'] 
+]
 
 # 2차원 배열 복사하는 함수
 # def copyarray(li):
@@ -95,10 +95,10 @@ def checkmaps(new_maps):
     answer = ''
     for i in range(len(new_maps)):
         for j in range(len(new_maps)):
-            if "catch" in new_maps[i][j]:
-                answer = "NO"
+            if "catch" not in new_maps[i][j]:
+                answer = "YES"
     if len(answer) == 0:
-            answer = "YES"
+            answer = "NO"
     return answer
 
 # 원래 지도로 회복해주는 함수
@@ -113,12 +113,12 @@ def recoveryMaps(li):
 def obstacleDFS(cnt_obs):
     global answer
 
+    # print(cnt_obs)
     if cnt_obs == 3:
         new_maps = teacherWatchBFS(maps,n)
         answer = checkmaps(new_maps)
         recoveryMaps(new_maps)
-        if answer == "NO":
-            return
+        return
     
     for i in range(n):
         for j in range(n):
