@@ -110,13 +110,24 @@ def checkmaps(new_maps):
             answer = "NO"
     return answer
 
+# 원래 지도로 회복해주는 함수
+def recoveryMaps(li):
+    n = len(li)
+    for i in range(n):
+        for j in range(n):
+            if li[i][j] == "catch":
+                li[i][j] = 'S'
+    return li
+
 # 3개의 장애물을 설치하는 모든 경우의 수
 def obstacleDFS(cnt_obs):
     global answer
+    global maps
 
     if cnt_obs == 3:
         new_maps = teacherWatchBFS(maps,n)
         answer = checkmaps(new_maps)
+        maps = recoveryMaps(new_maps)
         return
     
     for i in range(n):
@@ -124,10 +135,8 @@ def obstacleDFS(cnt_obs):
             if maps[i][j] == 'X':
                 maps[i][j] = 'O'
                 obstacleDFS(cnt_obs+1)
-
                 # obstacleDFS에서 빠져 나오면 원회복
                 maps[i][j] = 'X'
-
 
 obstacleDFS(0)
 
