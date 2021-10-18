@@ -36,13 +36,17 @@ maps = [
 def copyarray(li):
     array_row = len(li)
     array_column = len(li[0])
-    copy = [array_row][array_column]
+    
+    copy = []
     for i in range(array_row):
+        tmp = []
         for j in range(array_column):
-            copy[i][j] = li[i][j]
+            tmp.append(li[i][j])
+        copy.append(tmp)
     return copy
 
 a = copyarray(maps)
+print(maps)
 print(a)
 
 # BFS 진행시, 상하좌우로 감시하는 함수
