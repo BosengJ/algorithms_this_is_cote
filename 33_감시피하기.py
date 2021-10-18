@@ -33,21 +33,17 @@ maps = [
 #     ]
 
 # 2차원 배열 복사하는 함수
-def copyarray(li):
-    array_row = len(li)
-    array_column = len(li[0])
-    
-    copy = []
-    for i in range(array_row):
-        tmp = []
-        for j in range(array_column):
-            tmp.append(li[i][j])
-        copy.append(tmp)
-    return copy
+# def copyarray(li):
+#     array_row = len(li)
+#     array_column = len(li[0])
 
-a = copyarray(maps)
-print(maps)
-print(a)
+#     copy = []
+#     for i in range(array_row):
+#         tmp = []
+#         for j in range(array_column):
+#             tmp.append(li[i][j])
+#         copy.append(tmp)
+#     return copy
 
 # BFS 진행시, 상하좌우로 감시하는 함수
 def up(x,y,li):
@@ -133,6 +129,6 @@ def obstacleDFS(cnt_obs):
                 maps[i][j] = 'X'
 
 
-# obstacleDFS(0)
+obstacleDFS(0)
 
-# print(answer)
+print(answer)
