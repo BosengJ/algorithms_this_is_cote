@@ -7,3 +7,19 @@
 # test
 n,m = 3,3
 cards = [[3, 1, 2], [4, 1, 4], [2, 2, 2]]
+
+# 가장 작은 숫자를 뽑아내는 함수
+def checkMin(li):
+    minNum = li[0]
+    for i in range(len(li)):
+        if li[i] < minNum:
+            minNum = li[i]
+    return minNum
+
+# 가장 큰 숫자를 뽑아내는 함수
+def checkMax(li):
+    maxNum = li[0]
+    for i in range(len(li)):
+        if li[i] > maxNum:
+            maxNum = li[i]
+    return maxNum
