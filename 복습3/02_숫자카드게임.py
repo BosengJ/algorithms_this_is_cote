@@ -23,3 +23,14 @@ def checkMax(li):
         if li[i] > maxNum:
             maxNum = li[i]
     return maxNum
+
+# 각 행의 가장 작은 수를 찾아내서 리스트로 return 해주는 함수
+def findMinCardNum(li):
+    nums = []
+    for i in range(len(li)):
+        card_min_num = checkMin(li[i])
+        nums.append(card_min_num)
+    return nums
+
+n_min_nums = findMinCardNum(cards)
+print(n_min_nums)
