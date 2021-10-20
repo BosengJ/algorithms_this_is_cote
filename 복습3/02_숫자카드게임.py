@@ -33,4 +33,6 @@ def findMinCardNum(li):
     return nums
 
 n_min_nums = findMinCardNum(cards)
-print(n_min_nums)
+answer = checkMax(n_min_nums)
+
+print(answer)
