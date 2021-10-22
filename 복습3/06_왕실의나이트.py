@@ -20,7 +20,10 @@ def moveKnight(p,q):
 
 
 # 실행
+# input 받은 위치를 행(x)과 열(y)로 수치화해준다
 x,y = currentLocation(location)
+
+# 8가지 형태로 중 가능한 이동 횟수를 구해준다
 answer = moveKnight(x,y)
 
 print(answer)
