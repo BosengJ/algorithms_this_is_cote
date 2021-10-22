@@ -5,3 +5,7 @@ maps = []
 for i in range(n):
     maps.append(list(map(int,input("n개의 줄에 맵의 상태가 북쪽부터 남쪽 순서대로, 각 줄의 데이터는 서쪽부터 동쪽 순서대로 입력하세요 >").split())))
 
+# test case
+n,m = 4,4
+x,y,d = 1,1,0
+maps = [[1, 1, 1, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 1, 1, 1]]
