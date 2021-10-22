@@ -1,3 +1,6 @@
+from collections import deque
+import copy
+
 # input
 # n,m = map(int,input("맵의 세로 크기 n과 가로 크기 m을 공백으로 구분하여 입력하세요").split())
 # x,y,d = map(int,input("게임 캐릭터가 있는 칸의 좌표 x,y와 바라보는 방향 d를 공백으로 구분하여 입력하세요 >").split())
@@ -9,3 +12,17 @@
 n,m = 4,4
 x,y,d = 1,1,0
 maps = [[1, 1, 1, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 1, 1, 1]]
+
+# bfs
+def gameBFS(p,q,li):
+    # 기존의 맵을 복사해서 새로운 맵을 만들어준다
+    n_li = copy.deepcopy(li)
+    # 초기 위치를 q에 넣는다
+    q = deque([[p,q]])
+    # 초기값은 방문한 곳이기 때문에 element를 변경해준다
+    n_li[p][q] = 2
+    
+    while q:
+        i,j = q.popleft()
+
+    return n_li
