@@ -7,6 +7,20 @@ def currentLocation(str):
     column = int(ord(str[0])) - int(ord('a')) + 1
     return row, column
 
-x,y = currentLocation(location)
-print(x,y)
+# 8가지 L자 형태 움직임 함수
+def moveKnight(p,q):
+    moves = [[-1,2],[1,2],[-1,-2],[1,-2],[2,1],[2,-1],[-2,1],[-2,-1]]
+    cnt = 0
+    for move in moves:
+        np = p + move[0]
+        nq = q + move[1]
+        if (np > 0) and (nq > 0) and (np < 9) and (nq < 9):
+            cnt += 1
+    return cnt
 
+
+# 실행
+x,y = currentLocation(location)
+answer = moveKnight(x,y)
+
+print(answer)
