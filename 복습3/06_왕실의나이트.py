@@ -27,3 +27,23 @@ x,y = currentLocation(location)
 answer = moveKnight(x,y)
 
 print(answer)
+
+'''test case
+a1 2
+h1 2
+a8 2
+h8 2
+c2 6
+b2 4
+b7 4
+g7 4
+g2 4
+b4 6
+d7 6
+g5 6
+e2 6
+d4 8
+c1 4
+f1 4
+f8 4
+c8 4'''
