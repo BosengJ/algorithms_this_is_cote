@@ -13,6 +13,15 @@ n,m = 4,4
 x,y,d = 1,1,0
 maps = [[1, 1, 1, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 1, 1, 1]]
 
+# 뒤로 물러나는 함수
+def backStep(li,x,y):
+    north = li[x-1][y]
+    east = li[x][y+1]
+    south = li[x+1][y]
+    west = li[x][y-1]
+    if (north != 0) and (east != 0) and (south != 0) and (west != 0):
+        return True
+    return False
 # 다음 스텝을 어디로 갈지 정해주는 함수
 def nextStep(li,x,y,z):
     move_dict = {0:[0,-1], 1:[-1,0], 2:[0,1], 3:[1,0]}  # 바라보는 방향을 기준으로 왼쪽 좌표가 무엇인지 알아볼 때 +/- 해줘야 하는 값
@@ -36,9 +45,13 @@ def gameBFS(p,q,r,li):
     
     while q:
         i,j,k = q.popleft()
-        n_step = nextStep(n_li,i,j,k)   # 다음번 이동할 좌표와 방향을 뽑아낸다
-        q.append(n_step)
-        n_li[n_step[0]][n_step[1]] = 2
+        # 뒤로 물러나는 함수
+        if backStep() == True:
+
+        else:
+            n_step = nextStep(n_li,i,j,k)   # 다음번 이동할 좌표와 방향을 뽑아낸다
+            q.append(n_step)
+            n_li[n_step[0]][n_step[1]] = 2
 
     return n_li
 
