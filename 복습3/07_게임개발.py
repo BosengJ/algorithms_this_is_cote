@@ -15,12 +15,9 @@ maps = [[1, 1, 1, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 1, 1, 1]]
 
 # bfs
 def gameBFS(p,q,li):
-    # 기존의 맵을 복사해서 새로운 맵을 만들어준다
-    n_li = copy.deepcopy(li)
-    # 초기 위치를 q에 넣는다
-    q = deque([[p,q]])
-    # 초기값은 방문한 곳이기 때문에 element를 변경해준다
-    n_li[p][q] = 2
+    n_li = copy.deepcopy(li)    # 기존의 맵을 복사해서 새로운 맵을 만들어준다
+    q = deque([[p,q]])          # 초기 위치를 q에 넣는다   
+    n_li[p][q] = 2              # 초기값은 방문한 곳이기 때문에 element를 변경해준다
     
     while q:
         i,j = q.popleft()
