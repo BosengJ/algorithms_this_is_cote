@@ -26,3 +26,12 @@ def gameBFS(p,q,li):
         i,j = q.popleft()
 
     return n_li
+
+# 방문한 칸의 개수를 세는 함수
+def checkVisited(li):
+    cnt = 0
+    for i in range(len(li)):
+        for j in range(len(li[i])):
+            if li[i][j] == 2:
+                cnt += 1
+    return cnt
