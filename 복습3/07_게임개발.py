@@ -45,7 +45,7 @@ def gameBFS(p,q,r,li):
     n_li[p][q] = 2                # 초기값은 방문한 곳이기 때문에 element를 변경해준다
     
     while queue:
-        i,j,k = q.popleft()
+        i,j,k = queue.popleft()
         if backStep(n_li,i,j) == True:  # 뒤로 물러나야할 경우를 따져본다
             back_move_dict = {0:[0,-1], 1:[-1,0], 2:[0,1], 3:[1,0]}
             moving = back_move_dict[k]
