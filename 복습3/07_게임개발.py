@@ -41,10 +41,10 @@ def nextStep(li,x,y,z):
 # bfs
 def gameBFS(p,q,r,li):
     n_li = copy.deepcopy(li)      # 기존의 맵을 복사해서 새로운 맵을 만들어준다
-    q = deque([[p,q,r]])          # 초기 위치와 바라보는 방향을 q에 넣는다   
+    queue = deque([[p,q,r]])          # 초기 위치와 바라보는 방향을 q에 넣는다   
     n_li[p][q] = 2                # 초기값은 방문한 곳이기 때문에 element를 변경해준다
     
-    while q:
+    while queue:
         i,j,k = q.popleft()
         if backStep(n_li,i,j) == True:  # 뒤로 물러나야할 경우를 따져본다
             back_move_dict = {0:[0,-1], 1:[-1,0], 2:[0,1], 3:[1,0]}
@@ -52,10 +52,10 @@ def gameBFS(p,q,r,li):
             n_i = i + moving[0]
             n_j = j + moving[1]
             if li[n_i][n_j] == 2:       # 가본 곳으로 방향을 유지한 채 물러나고, 뒤가 바다(1)라면 q에 더이상 추가하지 않는다
-                q.append([n_i, n_j, k])
+                queue.append([n_i, n_j, k])
         else:
             n_step = nextStep(n_li,i,j,k)   # 다음번 이동할 좌표와 방향을 뽑아낸다
-            q.append(n_step)
+            queue.append(n_step)
             n_li[n_step[0]][n_step[1]] = 2
     return n_li
 
@@ -67,3 +67,8 @@ def checkVisited(li):
             if li[i][j] == 2:
                 cnt += 1
     return cnt
+
+n_map = gameBFS(x,y,d,maps)
+answer = checkVisited(n_map)
+
+print(answer)
