@@ -13,14 +13,32 @@ n,m = 4,4
 x,y,d = 1,1,0
 maps = [[1, 1, 1, 1], [1, 0, 0, 1], [1, 1, 0, 1], [1, 1, 1, 1]]
 
+# 다음 스텝을 어디로 갈지 정해주는 함수
+def nextStep(li,x,y,z):
+    move_dict = {0:[0,-1], 1:[-1,0], 2:[0,1], 3:[1,0]}  # 바라보는 방향을 기준으로 왼쪽 좌표가 무엇인지 알아볼 때 +/- 해줘야 하는 값
+    while True:
+        n_move = move_dict[z]
+        nx = x + n_move[0]
+        ny = y + n_move[1]
+        z -= 1
+        if z < 0:
+            z = 3
+        if li[nx][ny] == 0:
+            n_step = [nx,ny,z]
+            break
+    return n_step
+
 # bfs
 def gameBFS(p,q,r,li):
-    n_li = copy.deepcopy(li)    # 기존의 맵을 복사해서 새로운 맵을 만들어준다
+    n_li = copy.deepcopy(li)      # 기존의 맵을 복사해서 새로운 맵을 만들어준다
     q = deque([[p,q,r]])          # 초기 위치와 바라보는 방향을 q에 넣는다   
-    n_li[p][q] = 2              # 초기값은 방문한 곳이기 때문에 element를 변경해준다
+    n_li[p][q] = 2                # 초기값은 방문한 곳이기 때문에 element를 변경해준다
     
     while q:
         i,j,k = q.popleft()
+        n_step = nextStep(n_li,i,j,k)   # 다음번 이동할 좌표와 방향을 뽑아낸다
+        q.append(n_step)
+        n_li[n_step[0]][n_step[1]] = 2
 
     return n_li
 
